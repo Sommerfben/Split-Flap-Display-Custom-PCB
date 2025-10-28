@@ -2,6 +2,7 @@
 
 #include "JsonSettings.h"
 #include "SplitFlapModule.h"
+#include "SplitFlapModuleTCA9554A.h"
 #include "SplitFlapMqtt.h"
 
 SplitFlapDisplay::SplitFlapDisplay(JsonSettings &settings) : settings(settings) {}
@@ -32,7 +33,7 @@ void SplitFlapDisplay::init() {
     Serial.println();
 
     for (uint8_t i = 0; i < numModules; i++) {
-        modules[i] = SplitFlapModule(
+        modules[i] = SplitFlapModuleTCA9554A(
             moduleAddresses[i], stepsPerRot, moduleOffsets[i] + displayOffset, magnetPosition, charSetSize
         );
     }
@@ -46,6 +47,7 @@ void SplitFlapDisplay::init() {
     for (uint8_t i = 0; i < numModules; i++) {
         modules[i].init();
     }
+
 }
 
 void SplitFlapDisplay::testAll() {

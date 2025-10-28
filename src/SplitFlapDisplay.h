@@ -2,6 +2,7 @@
 
 #include "JsonSettings.h"
 #include "SplitFlapModule.h"
+#include "SplitFlapModuleTCA9554A.h"
 
 #include <Arduino.h>
 
@@ -45,7 +46,8 @@ class SplitFlapDisplay {
 
     int numModules;
     uint8_t moduleAddresses[MAX_MODULES];
-    SplitFlapModule modules[MAX_MODULES];
+    SplitFlapModuleTCA9554A modules[MAX_MODULES];
+    //SplitFlapModule modules[MAX_MODULES];
     int moduleOffsets[MAX_MODULES];
     int displayOffset;
 
